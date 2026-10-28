@@ -1,0 +1,25 @@
+// VARIABLES  
+
+// Colores
+$color-primary: #e53442;     // rojo de botones, link activo y barra final
+$color-text:    #707070;     // texto del menú
+$color-title:   #3f465c;     // títulos 
+$color-white:   #ffffff;
+$color-gray-bg: #d0d0d0;     // fondo de la sección Essentials
+$color-card:    #d9d9d9;     // fondo de las tarjetas de productos
+$color-footer:  #555555;     // fondo del footer
+
+// Tipografía
+$font-main: 'Roboto', sans-serif;
+
+// Medidas
+$container-width: 1490px;
+$radius-sm: 10px;
+$radius-md: 15px;
+$radius-lg: 30px;
+$gap: 20px;
+
+// Breakpoints para los media queries
+$bp-tablet: 992px;
+$bp-mobile: 600px;
+$bp-small: 400px;

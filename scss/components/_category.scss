@@ -1,0 +1,74 @@
+// COMPONENTE: .essentials (CSS GRID) y .category (tarjeta de categoría)
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+// ---------- La cuadrícula ----------
+// 12 columnas: las tarjetas normales ocupan 3 (4 por fila)
+// y las "--wide" ocupan 4 (3 por fila)
+.essentials {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 297px;
+  gap: $gap;
+
+  @include respond(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+
+  @include respond(mobile) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+}
+
+// La tarjeta 
+.category {
+  position: relative;
+  grid-column: span 3;
+  border-radius: $radius-md;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  // Capa roja/negra + texto
+  &__label {
+    position: absolute;
+    inset: 0;
+    padding: 35px;
+    background: linear-gradient(135deg, rgba($color-primary, 0.75), rgba(#000, 0.75));
+    color: $color-white;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.15;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  // Muestra la capa y la imagen hace zoom
+  &:hover &__label { opacity: 1; }
+  &:hover &__img   { transform: scale(1.08); }
+
+  // Modificadores
+  &--tall { grid-row: span 2; }     // Smart Home y Home Care
+  &--wide { grid-column: span 4; }  // Outdoor, Cleaning, Entertainment
+
+  // Responsive: en tablet y móvil cada tarjeta ocupa 1 columna
+  @include respond(tablet) {
+    &,
+    &--wide { grid-column: span 1; }
+
+    &__label { font-size: 2.2rem; }
+  }
+
+  @include respond(mobile) {
+    &--tall { grid-row: span 1; }
+  }
+}

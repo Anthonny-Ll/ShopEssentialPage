@@ -1,0 +1,52 @@
+// Footer
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+  background: $color-footer;
+  color: $color-white;
+
+  &__container {
+    @include flex(row, space-between, flex-start, 40px);
+    max-width: 1280px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include respond(tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    width: 102px;
+  }
+
+  &__col {
+    @include flex(column, flex-start, flex-start, 25px);
+    max-width: 420px;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 800;
+  }
+
+  &__text,
+  &__link {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  &__link:hover {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+
+  &__copy {
+    background: $color-primary;
+    text-align: center;
+    padding: 30px 1rem;
+    font-weight: 700;
+  }
+}

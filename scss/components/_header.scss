@@ -1,0 +1,66 @@
+// COMPONENTE: .header y .nav   (FLEXBOX)
+
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+  background: $color-primary;
+  padding: 10px 0;
+
+  &__container {
+    @include grid(3, center, center, 30px);
+  }
+
+  &__logo img {
+    width: 100px;
+  }
+
+  &__actions {
+    @include grid(2, center, center, 20px);
+  }
+
+  &__avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  // Tablet: el menú baja a una segunda fila
+  @include respond(tablet) {
+    &__container {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.nav {
+  @include grid(3, center, center, 30px);
+
+  &__link {
+    color: $color-text;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover,
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  @include respond(tablet) {
+    order: 3;              // se va al final (debajo del logo y botones)
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px 30px;
+
+    &__link {
+      font-size: 1.1rem;
+    }
+  }
+  @include respond(mobile) {
+    gap: 10px 20px;
+    color: $color-primary;
+  }
+}

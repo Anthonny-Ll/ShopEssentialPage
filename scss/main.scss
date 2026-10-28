@@ -1,0 +1,12 @@
+// ARCHIVO PRINCIPAL
+
+@use 'base';
+
+// Componentes 
+@use 'components/button';
+@use 'components/header';
+@use 'components/search';
+@use 'components/section';
+@use 'components/category';
+@use 'components/product-card';
+@use 'components/footer';

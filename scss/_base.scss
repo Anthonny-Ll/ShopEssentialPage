@@ -1,0 +1,36 @@
+// BASE 
+@use 'variables' as *;
+@use 'mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background: $color-white;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Contenedor centrado que usan todas las secciones
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @include respond(mobile) {
+    padding: 0 1rem;
+  }
+}

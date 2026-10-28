@@ -1,0 +1,24 @@
+// MIXINS  
+@use 'variables' as *;
+
+// Flexbox;
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// MediaQueries
+@mixin respond($device) {
+  @if $device == tablet {
+    @media (max-width: $bp-tablet) { @content; }
+  } @else if $device == mobile {
+    @media (max-width: $bp-mobile) { @content; }
+  }@else if $device == small {
+    @media (max-width: $bp-small) { @content; }
+  } 
+}
+
+
